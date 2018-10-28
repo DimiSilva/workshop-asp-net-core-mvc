@@ -14,6 +14,7 @@ namespace SalesWebMvc.Models
         public double BaseSalary { get; set; }
 
         //Department association
+        public int DepartmentId { get; set; }
         public Department Department { get; set; }
         //Sales association
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();

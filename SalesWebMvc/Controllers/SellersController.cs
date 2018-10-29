@@ -45,9 +45,18 @@ namespace SalesWebMvc.Controllers
             return View();
         }
 
-        public IActionResult Details()
+        public IActionResult Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var obj = _sellerServices.FindById(id.Value);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
         }
 
         public IActionResult Delete(int? id)
